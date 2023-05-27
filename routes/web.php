@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InvokableController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//........invoke method........
+Route::get('/{pages}',InvokableController::class)->name('pages')->where('pages','contact|about|terms');
+
 
 Route::middleware([
     'auth:sanctum',
